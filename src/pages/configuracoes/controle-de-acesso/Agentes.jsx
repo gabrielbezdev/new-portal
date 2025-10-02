@@ -215,10 +215,11 @@ function DualList({ initialLeft = [], initialRight = [] }) {
 export default function Agentes() {
   const [page, setPage] = useState(1);
 
-  /* drawers */
   const [openNovo, setOpenNovo] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
   const [openAssoc, setOpenAssoc] = useState(false);
   const [payloadNovo, setPayloadNovo] = useState(null);
+  const [editing, setEditing] = useState(null);
 
   const columns = [
     { key: "nome", header: "Nome", width: 180 },
@@ -245,15 +246,16 @@ export default function Agentes() {
   const actions = (row) => (
     <TableActions
       onInfo={() => console.log("detalhes", row)}
-      onEdit={() => setOpenNovo(true)}     
-      onUsers={() => setOpenAssoc(true)}     
+      onEdit={() => { setEditing(row); setOpenEdit(true); }}
+      onUsers={() => setOpenAssoc(true)}
       onDelete={() => console.log("excluir", row)}
     />
   );
 
   function handleSearch(value) { console.log("buscar:", value); }
-  function abrirNovo() { setOpenNovo(true); }
+  function abrirNovo() { setEditing(null); setOpenNovo(true); }
   function salvarNovo() { console.log("novo agente:", payloadNovo); setOpenNovo(false); }
+  function salvarEdicao() { console.log("editar agente:", editing, payloadNovo); setOpenEdit(false); }
 
   return (
     <div className="page">
@@ -284,6 +286,20 @@ export default function Agentes() {
         }
       >
         <NovoAgenteForm initial={{}} onChange={setPayloadNovo} />
+      </Drawer>
+
+      <Drawer
+        open={openEdit}
+        onClose={() => setOpenEdit(false)}
+        title="Editar Agente"
+        footer={
+          <>
+            <button className="btn btn-secondary" onClick={() => setOpenEdit(false)}>Cancelar</button>
+            <button className="btn btn-primary" onClick={salvarEdicao}>Salvar</button>
+          </>
+        }
+      >
+        <NovoAgenteForm initial={editing || {}} onChange={setPayloadNovo} />
       </Drawer>
 
       {/* Drawer: Associar Grupo (dual list) */}
