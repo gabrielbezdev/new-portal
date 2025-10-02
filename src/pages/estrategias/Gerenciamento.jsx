@@ -1,0 +1,1 @@
+export default function Gerenciamento(){ return <h1>Gerenciamento</h1>; }

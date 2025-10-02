@@ -1,0 +1,1 @@
+export default function Receptivo(){ return <h1>Receptivo</h1>; }

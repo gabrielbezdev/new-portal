@@ -1,0 +1,1 @@
+export default function Pausas(){ return <h1>Pausas</h1>; }

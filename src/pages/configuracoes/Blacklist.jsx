@@ -1,0 +1,1 @@
+export default function Blacklist(){ return <h1>Blacklist</h1>; }

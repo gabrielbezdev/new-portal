@@ -1,0 +1,1 @@
+export default function ControleOperadora(){ return <h1>Controle Operadora</h1>; }

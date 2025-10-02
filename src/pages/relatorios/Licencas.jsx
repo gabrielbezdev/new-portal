@@ -1,0 +1,1 @@
+export default function Licencas(){ return <h1>Licenças</h1>; }

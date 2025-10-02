@@ -1,0 +1,1 @@
+export default function ControleDeAcesso(){ return <h1>Controle de Acesso</h1>; }

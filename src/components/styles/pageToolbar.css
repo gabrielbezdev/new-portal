@@ -1,0 +1,165 @@
+.page-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.pt-left { min-width: 0; }
+.pt-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #1f2937; /* gray-800 */
+  margin: 0;
+}
+
+.pt-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;        /* mantém o espaçamento entre busca e o grupo de botões */
+}
+
+/* ====== NOVO: agrupar múltiplos botões ====== */
+.pt-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;        /* espaçamento entre os botões */
+}
+
+/* SEARCH */
+.pt-search {
+  position: relative;
+}
+.pt-search input {
+  width: 240px;
+  max-width: 42vw;
+  padding: 8px 28px 8px 12px;
+  border: 1px solid #e5e7eb; /* gray-200 */
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .15s ease;
+  background: #fff;
+}
+.pt-search input:focus {
+  border-color: #a7f3d0; /* emerald-200 */
+  box-shadow: 0 0 0 3px rgba(16,185,129,.15);
+}
+.pt-search input:disabled {
+  background: #f9fafb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+.pt-search-icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  opacity: .55;
+  pointer-events: none;
+}
+
+/* BUTTON (primário – mantém seu padrão verde) */
+.pt-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: #0EDF9D;
+  cursor: pointer;
+  transition: transform .08s ease, filter .15s ease, background .2s ease;
+}
+.pt-button:hover { filter: brightness(1.03); }
+.pt-button:active { transform: translateY(1px); }
+.pt-button:disabled {
+  background: #a7f3d0;
+  cursor: not-allowed;
+}
+
+/* ====== NOVO: variante secundária (cinza claro) ====== */
+.pt-button--secondary {
+  color: #374151;                 /* gray-700 */
+  background: #f3f4f6;            /* gray-100 */
+  border: 1px solid #e5e7eb;      /* gray-200 */
+}
+.pt-button--secondary:hover {
+  filter: none;
+  background: #eef0f3;
+}
+.pt-button--secondary:disabled {
+  color: #9ca3af;
+  background: #f5f6f8;
+  border-color: #eceff2;
+}
+
+/* grupo flex para campos custom à direita */
+.pt-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* rótulo (ex.: "Carteira") */
+.pt-field-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937; /* gray-800 */
+}
+
+/* select básico no padrão do input */
+.pt-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px 28px 8px 12px;
+  font-size: 14px;
+  color: #111827;
+  outline: none;
+  transition: border-color .15s ease;
+}
+.pt-select:focus {
+  border-color: #a7f3d0;
+  box-shadow: 0 0 0 3px rgba(16,185,129,.15);
+}
+
+/* botão icônico redondo/verde */
+.pt-iconbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 36px;
+  border-radius: 10px;
+  border: none;
+  background: #0EDF9D;
+  color: #fff;
+  cursor: pointer;
+  transition: transform .08s ease, filter .15s ease;
+}
+.pt-iconbtn:hover { filter: brightness(1.03); }
+.pt-iconbtn:active { transform: translateY(1px); }
+
+/* RESPONSIVO */
+@media (max-width: 640px) {
+  .page-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .pt-right {
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .pt-actions {
+    gap: 10px; /* um respiro extra no mobile */
+  }
+  .pt-search input { width: 100%; max-width: none; }
+   .pt-inline { gap: 10px; flex-wrap: wrap; }
+}

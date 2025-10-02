@@ -1,0 +1,25 @@
+.table-actions {
+  display: inline-flex;
+  gap: 8px;
+}
+
+.ta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: transparent;   /* sem fundo */
+  border: none;              /* sem borda */
+  color: #0edf9d;            /* verde do sidebar */
+  cursor: pointer;
+  transition: transform .06s ease, opacity .15s ease;
+}
+
+.ta-btn:hover {
+  opacity: 0.8; /* leve destaque no hover */
+}
+
+.ta-btn:active {
+  transform: translateY(1px);
+}

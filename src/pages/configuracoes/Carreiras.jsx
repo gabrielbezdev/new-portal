@@ -1,0 +1,1 @@
+export default function Carreiras(){ return <h1>Carreiras</h1>; }

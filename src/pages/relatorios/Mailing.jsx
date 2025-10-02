@@ -1,0 +1,1 @@
+export default function Mailing(){ return <h1>Mailing</h1>; }
